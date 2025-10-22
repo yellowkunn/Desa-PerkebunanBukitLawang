@@ -66,7 +66,7 @@
         </div>
     </div>
 
- @php
+    @php
         $count = $wisataRow1->count();
     @endphp
 
@@ -138,9 +138,9 @@
             </div>
         </div>
 
-        <div class="lg:pt-[80px] pt-[20px]">
+        <div class="lg:pt-[65px] pt-[20px]">
             <div class="max-w-7xl mx-auto px-4 sm:px-0 md:px-8 2xl:px-0">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-6 lg:pt-[65px] pt-[20px]">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-6">
                     @forelse ($paketwisata as $item)
                         <div class="bg-white rounded-3xl p-3">
                             <h5
@@ -169,19 +169,21 @@
         </div>
     </div>
 
-
-    <div class="lg:pt-[150px] pt-12 mb-12">
+    <div class="pt-12 lg:pt-[150px] mb-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-0 md:px-8 2xl:px-0">
-            <div class="flex flex-wrap justify-between">
-
-                <video class="w-full h-auto max-w-full rounded-3xl" controls>
-                    <source
-                        src="{{ URL('videos/SELAYANG PANDANG DESA PERKEBUNAN BUKIT LAWANG KECAMATAN BAHOROK KABUPATEN LANGKAT.mp4') }}"
-                        type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-
+            <div class="relative w-full aspect-video rounded-3xl overflow-hidden group">
+                <img src="https://img.youtube.com/vi/6Ew9TalxZZQ/hqdefault.jpg" alt="Selayang Pandang Video"
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                    <a href="https://youtu.be/6Ew9TalxZZQ" target="_blank" rel="noopener noreferrer"
+                        class="flex flex-col items-center justify-center">
+                        <img class="w-8 lg:w-12 h-auto object-cover rounded-3xl" src="{{ asset('images/Youtube.svg') }}"
+                            alt="Perkebunan Bukit Lawang">
+                        <span class="mt-2 text-white font-semibold text-lg">Tonton di YouTube</span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
+
 @endsection

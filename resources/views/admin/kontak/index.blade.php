@@ -2,12 +2,17 @@
 @section('container')
     <div class="sm:ml-64">
         <div class="w-full h-[50vh] relative overflow-hidden">
-            <img src="{{ asset($kontak->background) }}" class="w-full h-full object-cover absolute top-0 left-0 z-0 brightness-75"
-                alt="Background">
+            <img src="{{ asset($kontak->background) }}"
+                class="w-full h-full object-cover absolute top-0 left-0 z-0 brightness-75" alt="Background">
         </div>
         @if (session('success'))
             <div class="bg-green-100 text-green-700 p-4 mb-4 rounded-lg">
                 {{ session('success') }}
+            </div>
+        @endif
+        @if (session('error'))
+            <div class=" bg-red-100 text-red-700 p-4 mb-4 rounded-lg">
+                {{ session('error') }}
             </div>
         @endif
         <div class="lg:pt-[150px] pt-12">
@@ -24,7 +29,7 @@
             <div class="pt-[20px]">
                 <div class="container mx-auto px-4 2xl:px-0">
                     <div class="flex flex-wrap justify-center gap-6">
-                        <a href="{{ $kontak->instagram ?? 'https://www.instagram.com/dewibukitlawang/?igsh=dmxqOHM4N2cyM3Rz#' }}"
+                        <a href="{{ $kontak->instagram ?? 'https://www.instagram.com/desa_wisata_budaya_dokan?igsh=MWx2MDFtankyaGI3Nw==' }}"
                             target="_blank"
                             class="h-[64px] w-[64px] rounded-full border-2 border-black inline-flex items-center justify-center hover:bg-gray-100 transition">
                             <img src="{{ asset('images/ig.png') }}" alt="instagram" class="w-6 h-6">
@@ -32,7 +37,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="max-w-7xl mx-auto px-4 sm:px-0 md:px-8 2xl:px-0 pt-[45px] pb-[100px]">
                 <div class="flex flex-wrap gap-8">
                     <!-- MAP -->

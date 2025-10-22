@@ -6,6 +6,11 @@
                 {{ session('success') }}
             </div>
         @endif
+        @if (session('error'))
+            <div class=" bg-red-100 text-red-700 p-4 mb-4 rounded-lg">
+                {{ session('error') }}
+            </div>
+        @endif
 
         {{-- HERO SECTION --}}
         <div class="w-full h-[45vh] lg:h-[90vh] relative overflow-hidden">
@@ -13,15 +18,15 @@
                 class="w-full h-full object-cover absolute top-0 left-0 z-0 brightness-50" alt="Background">
 
             <div
-                class="relative z-10 w-full h-full flex items-center justify-center md:ml-32 sm:ml-20 ml-0 text-center sm:justify-start sm:text-start">
-                <div class="lg:max-w-2xl md:max-w-lg max-w-lg space-y-6 lg:space-y-12">
-                    <div class="text-md md:text-lg lg:text-3xl font-semibold leading-tight text-gray-900 dark:text-white">
+                class="relative z-10 w-full h-full flex items-center justify-center lg:ml-52 md:ml-32 sm:ml-20 ml-0 text-center sm:justify-start sm:text-start">
+                <div class="lg:max-w-4xl md:max-w-2xl max-w-lg space-y-6 lg:space-y-12">
+                    <div class="text-md md:text-xl lg:text-3xl font-semibold leading-tight text-gray-900 dark:text-white">
                         {{ $hero->title1 }}
                     </div>
-                    <div class="text-4xl md:text-4xl lg:text-7xl font-semibold leading-tight text-gray-900 dark:text-white">
+                    <div class="text-4xl md:text-6xl lg:text-7xl font-semibold leading-tight text-gray-900 dark:text-white">
                         {{ $hero->title2 }}
                     </div>
-                    <a href="{{ $hero->hubungikami ?? '#' }}"
+                    <a href="{{ route('kontak') }}"
                         class="text-xs md:text-md lg:text-xl inline-flex items-center px-24 py-4 bg-[#485A10] text-white rounded-full no-underline">
                         Hubungi Kami
                     </a>
@@ -32,42 +37,18 @@
         {{-- TENTANG SECTION --}}
         <div class="lg:pt-[150px] pt-12">
             <div class="max-w-7xl mx-auto px-4 sm:px-0 md:px-8 2xl:px-0">
-
-                {{-- Tombol Edit Section --}}
-                <div class="flex flex-wrap justify-center gap-3 mb-10">
-                    <a href="{{ route('dashboard.edit', $hero->id) }}"
-                        class="bg-blue-600 text-white px-5 py-2 rounded-lg shadow hover:bg-blue-700">
-                        Edit Hero
-                    </a>
-
-                    <a href="{{ route('dashboard.edit', $tentang->id) }}"
-                        class="bg-blue-600 text-white px-5 py-2 rounded-lg shadow hover:bg-blue-700">
-                        Edit Tentang
-                    </a>
-
-                    <a href="{{ route('dashboard.edit', $destinasi->id) }}"
-                        class="bg-blue-600 text-white px-5 py-2 rounded-lg shadow hover:bg-blue-700">
-                        Edit Destinasi
-                    </a>
-
-                    <a href="{{ route('dashboard.edit', $paket->id) }}"
-                        class="bg-blue-600 text-white px-5 py-2 rounded-lg shadow hover:bg-blue-700">
-                        Edit Paket
-                    </a>
-                </div>
-
-                {{-- Konten Tentang --}}
                 <div class="flex flex-wrap xl:justify-between justify-center gap-y-7">
-                    <div class="2xl:max-w-3xl xl:max-w-xl max-w-full bg-white rounded-lg shadow-sm content-center p-6">
+
+                    <div class="2xl:max-w-3xl xl:max-w-xl max-w-full bg-white rounded-lg shadow-sm content-center ">
                         <h5 class="mb-2 text-xs lg:text-2xl font-normal text-center tracking-tight text-black">
                             {{ $tentang->title1 }}
                         </h5>
 
-                        <h1 class="mb-2 mt-[10px] text-3xl lg:text-8xl font-bold text-center text-black">
+                        <h1 class="mb-2 mt-[10px] text-3xl lg:text-8xl font-bold text-center leading-tight text-black">
                             {{ $tentang->title2 }}
                         </h1>
 
-                        <p class="mt-5 text-xs lg:text-[16px] font-normal text-center text-black leading-relaxed">
+                        <p class="mt-5 text-xs lg:text-[16px] font-normal text-center text-black leading-loose">
                             {{ $tentang->konten }}
                         </p>
                     </div>
@@ -79,7 +60,6 @@
                 </div>
             </div>
         </div>
-
 
         {{-- DESTINASI SECTION --}}
         <div class="lg:pt-[150px] pt-12">
@@ -98,61 +78,61 @@
             </div>
         </div>
 
- @php
-        $count = $wisataRow1->count();
-    @endphp
+        @php
+            $count = $wisataRow1->count();
+        @endphp
 
-    @if ($count === 1)
-        <div class="lg:pt-[65px] pt-[20px]">
-            <div class="max-w-7xl mx-auto px-4 md:px-8 2xl:px-0">
-                @foreach ($wisataRow1 as $item)
-                    <img class="w-full h-[250px] lg:h-[400px] object-cover shadow-lg rounded-lg lg:rounded-2xl"
-                        src="{{ asset($item->gambar) }}" alt="{{ $item->cardTitle }}">
-                @endforeach
-            </div>
-        </div>
-    @elseif ($count < 3)
-        <div class="lg:pt-[65px] pt-[20px]">
-            <div class="max-w-7xl mx-auto px-4 md:px-8 2xl:px-0">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-8">
-                    @forelse ($wisataRow1 as $item)
-                        <img class="w-full h-[180px] md:h-[250px] lg:h-[320px] object-cover shadow-lg rounded-lg lg:rounded-2xl"
+        @if ($count === 1)
+            <div class="lg:pt-[65px] pt-[20px]">
+                <div class="max-w-7xl mx-auto px-4 md:px-8 2xl:px-0">
+                    @foreach ($wisataRow1 as $item)
+                        <img class="w-full h-[250px] lg:h-[400px] object-cover shadow-lg rounded-lg lg:rounded-2xl"
                             src="{{ asset($item->gambar) }}" alt="{{ $item->cardTitle }}">
-                    @empty
-                        <p class="text-gray-500 col-span-2">Belum ada destinasi wisata.</p>
-                    @endforelse
+                    @endforeach
                 </div>
             </div>
-        </div>
-    @else
-        <div class="lg:pt-[65px] pt-[20px]">
-            <div class="max-w-7xl mx-auto px-4 md:px-8 2xl:px-0 space-y-5 lg:space-y-20">
-
-                <!-- Row 1 -->
-                <div class="flex justify-between items-center flex-wrap gap-4">
-                    @forelse ($wisataRow1 as $item)
-                        <img class="h-[150px] w-[105px] md:h-[228px] md:w-[205px] lg:h-[300px] lg:w-[270px] object-cover shadow-lg rounded-lg lg:rounded-2xl"
-                            src="{{ asset($item->gambar) }}" alt="{{ $item->cardTitle }}">
-                    @empty
-                        <p class="text-gray-500">Belum ada destinasi wisata.</p>
-                    @endforelse
+        @elseif ($count < 3)
+            <div class="lg:pt-[65px] pt-[20px]">
+                <div class="max-w-7xl mx-auto px-4 md:px-8 2xl:px-0">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-8">
+                        @forelse ($wisataRow1 as $item)
+                            <img class="w-full h-[180px] md:h-[250px] lg:h-[320px] object-cover shadow-lg rounded-lg lg:rounded-2xl"
+                                src="{{ asset($item->gambar) }}" alt="{{ $item->cardTitle }}">
+                        @empty
+                            <p class="text-gray-500 col-span-2">Belum ada destinasi wisata.</p>
+                        @endforelse
+                    </div>
                 </div>
-
-                <!-- Row 2 -->
-                @if (!empty($wisataRow2?->gambar))
-                    <img class="h-[150px] lg:h-[300px] w-full object-cover shadow-lg rounded-lg lg:rounded-2xl"
-                        src="{{ asset($wisataRow2->gambar) }}" alt="{{ $wisataRow2->cardTitle }}">
-                @endif
-
             </div>
-        </div>
-    @endif
+        @else
+            <div class="lg:pt-[65px] pt-[20px]">
+                <div class="max-w-7xl mx-auto px-4 md:px-8 2xl:px-0 space-y-5 lg:space-y-20">
+
+                    <!-- Row 1 -->
+                    <div class="flex justify-between items-center flex-wrap gap-4">
+                        @forelse ($wisataRow1 as $item)
+                            <img class="h-[150px] w-[105px] md:h-[228px] md:w-[205px] lg:h-[300px] lg:w-[270px] object-cover shadow-lg rounded-lg lg:rounded-2xl"
+                                src="{{ asset($item->gambar) }}" alt="{{ $item->cardTitle }}">
+                        @empty
+                            <p class="text-gray-500">Belum ada destinasi wisata.</p>
+                        @endforelse
+                    </div>
+
+                    <!-- Row 2 -->
+                    @if (!empty($wisataRow2?->gambar))
+                        <img class="h-[150px] lg:h-[300px] w-full object-cover shadow-lg rounded-lg lg:rounded-2xl"
+                            src="{{ asset($wisataRow2->gambar) }}" alt="{{ $wisataRow2->cardTitle }}">
+                    @endif
+
+                </div>
+            </div>
+        @endif
 
 
         <div class="lg:pt-[80px] pt-[20px]">
             <div class="max-w-7xl mx-auto px-4 sm:px-0 md:px-8 2xl:px-0">
                 <div class="flex justify-center">
-                    <a href="{{route('wisata.index') }}"
+                    <a href="{{ route('destinasi.wisata') }}"
                         class="inline-flex font-normal items-center px-4 py-2 lg:px-8 lg:py-4 text-black rounded-xl lg:rounded-2xl lg:border-2 border-black text-xs lg:text-xl no-underline">
                         Lihat Wisata
                     </a>
@@ -170,9 +150,9 @@
                 </div>
             </div>
 
-            <div class="lg:pt-[80px] pt-[20px]">
+            <div class="lg:pt-[65px] pt-[20px]">
                 <div class="max-w-7xl mx-auto px-4 sm:px-0 md:px-8 2xl:px-0">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-6 lg:pt-[65px] pt-[20px]">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-6">
                         @forelse ($paketwisata as $item)
                             <div class="bg-white rounded-3xl p-3">
                                 <h5
@@ -187,34 +167,35 @@
                         @endforelse
                     </div>
                 </div>
+            </div>
 
-                <div class="lg:pt-[80px] pt-[20px]">
-                    <div class="max-w-7xl mx-auto px-4 sm:px-0 md:px-8 2xl:px-0">
-                        <div class="flex justify-center">
-                            <a href="{{ route('paketwisata.index') }}"
-                                class="inline-flex font-normal items-center px-4 py-2 lg:px-8 lg:py-4 text-black rounded-xl lg:rounded-2xl lg:border-2 border-black text-xs lg:text-xl no-underline">
-                                Lihat Paket
-                            </a>
-                        </div>
+            <div class="lg:pt-[80px] pt-[20px]">
+                <div class="max-w-7xl mx-auto px-4 sm:px-0 md:px-8 2xl:px-0">
+                    <div class="flex justify-center">
+                        <a href="{{ route('paket.wisata') }}"
+                            class="inline-flex font-normal items-center px-4 py-2 lg:px-8 lg:py-4 text-black rounded-xl lg:rounded-2xl lg:border-2 border-black text-xs lg:text-xl no-underline">
+                            Lihat Paket
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
 
-
-        <div class="lg:pt-[150px] pt-12 mb-12">
+        <div class="pt-12 lg:pt-[150px] mb-12">
             <div class="max-w-7xl mx-auto px-4 sm:px-0 md:px-8 2xl:px-0">
-                <div class="flex flex-wrap justify-between">
-
-                    <video class="w-full h-auto max-w-full rounded-3xl" controls>
-                        <source
-                            src="{{ URL('videos/SELAYANG PANDANG DESA PERKEBUNAN BUKIT LAWANG KECAMATAN BAHOROK KABUPATEN LANGKAT.mp4') }}"
-                            type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-
+                <div class="relative w-full aspect-video rounded-3xl overflow-hidden group">
+                    <img src="https://img.youtube.com/vi/6Ew9TalxZZQ/hqdefault.jpg" alt="Selayang Pandang Video"
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <a href="https://youtu.be/6Ew9TalxZZQ" target="_blank" rel="noopener noreferrer"
+                            class="flex flex-col items-center justify-center">
+                            <img class="w-8 lg:w-12 h-auto object-cover rounded-3xl"
+                                src="{{ asset('images/Youtube.svg') }}" alt="Perkebunan Bukit Lawang">
+                            <span class="mt-2 text-white font-semibold text-lg">Tonton di YouTube</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-@endsection
+
+    @endsection
