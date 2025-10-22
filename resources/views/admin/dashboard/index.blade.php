@@ -57,7 +57,7 @@
                 </div>
 
                 {{-- TENTANG SECTION --}}
-                <div class="lg:pt-[150px] pt-12">
+                <div class="lg:pt-[150px]">
                     <div class="max-w-7xl mx-auto px-4 sm:px-0 md:px-8 2xl:px-0">
                         <div class="flex flex-wrap xl:justify-between justify-center gap-y-7">
 
