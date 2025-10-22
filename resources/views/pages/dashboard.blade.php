@@ -8,10 +8,10 @@
         <div
             class="relative z-10 w-full h-full flex items-center justify-center lg:ml-52 md:ml-32 sm:ml-20 ml-0 text-center sm:justify-start sm:text-start">
             <div class="lg:max-w-4xl md:max-w-2xl max-w-lg space-y-6 lg:space-y-12">
-                <div class="text-md md:text-xl lg:text-3xl font-semibold leading-tight text-gray-900 dark:text-white">
+                <div class="text-md md:text-xl lg:text-3xl font-semibold leading-tight text-white">
                     {{ $hero->title1 }}
                 </div>
-                <div class="text-4xl md:text-6xl lg:text-7xl font-semibold leading-tight text-gray-900 dark:text-white">
+                <div class="text-4xl md:text-6xl lg:text-7xl font-semibold leading-tight text-white">
                     {{ $hero->title2 }}
                 </div>
                 <a href="{{ route('kontak') }}"

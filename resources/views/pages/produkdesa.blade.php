@@ -18,7 +18,7 @@
 
                     {{-- Deskripsi --}}
                     <div
-                        class="font-normal lg:text-[16px]text-xs text-black leading-relaxed mt-[20px] lg:mt-[30px] space-y-6">
+                        class="font-normal lg:text-[16px] text-xs text-black leading-relaxed mt-[20px] lg:mt-[30px] space-y-6">
                         <p>{{ $deskripsi }}</p>
                     </div>
 

@@ -50,8 +50,8 @@
 
                                         <div class="relative overflow-x-auto shadow-lg sm:rounded-lg">
                                             <table
-                                                class="w-full text-sm text-left text-gray-700 border border-gray-200 table-fixed">
-                                                <thead class="text-xs text-gray-700 uppercase bg-gray-100">
+                                                class="w-full lg:text-sm text-xs text-left text-gray-700 border border-gray-200 table-fixed">
+                                                <thead class="text-gray-700 uppercase bg-gray-100">
                                                     <tr>
                                                         <th scope="col" class="px-6 py-3 w-[20%]">Hari</th>
                                                         <th scope="col" class="px-6 py-3 w-[25%]">Waktu</th>
