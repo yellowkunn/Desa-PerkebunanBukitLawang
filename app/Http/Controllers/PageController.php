@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\AboutUs;
+use App\Models\Aboutus;
 use App\Models\DestinasiWisata;
 use App\Models\ProdukDesa;
 use App\Models\PaketWisata;
@@ -40,7 +40,7 @@ class PageController extends Controller
 
     public function tentangKami()
     {
-        $about = AboutUs::first();
+        $about = Aboutus::first();
         $kontak = Kontak::latest()->first();
         return view('pages.tentangkami', compact('about', 'kontak'));
     }
