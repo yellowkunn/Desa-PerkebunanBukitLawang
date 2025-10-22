@@ -2,14 +2,18 @@
 
 namespace Database\Seeders;
 
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Aboutus;
+use App\Models\AboutUs;
 
 class TentangKamiSeeder extends Seeder
 {
-    public function run(): void
+    /**
+     * Run the database seeds.
+     */
+public function run(): void
     {
-        Aboutus::create([
+        AboutUs::create([
             'title' => 'Tentang Perkebunan Bukit Lawang',
             'background' => 'images/bg2.jpg',
             'content' => "Bukit Lawang adalah nama tempat wisata di Kecamatan Bohorok, Kabupaten Langkat, Provinsi Sumatera Utara yang terletak 68 km sebelah barat laut Kota Binjai dan sekitar 80 km di sebelah barat laut kota Medan. Bukit Lawang termasuk dalam lingkup Taman Nasional Gunung Leuser yang merupakan daerah konservasi terhadap mawas orang utan. Pusat rehabilitasi orangutan Bukit Lawang didirikan pada tahun 1973. Tujuan utamanya adalah untuk melestarikan populasi orangutan yang semakin berkurang akibat perburuan, perdagangan dan deforestasi.

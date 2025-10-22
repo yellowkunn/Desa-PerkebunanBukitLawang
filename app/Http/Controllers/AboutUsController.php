@@ -3,22 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Aboutus;
+use App\Models\AboutUs;
 
-class AboutusController extends Controller
+class AboutUsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $about = Aboutus::first();
+        $about = AboutUs::first();
         return view('admin.about.index', compact('about'));
     }
 
     public function edit()
     {
-        $about = Aboutus::first();
+        $about = AboutUs::first();
         return view('admin.about.edit', compact('about'));
     }
 
@@ -36,7 +36,7 @@ class AboutusController extends Controller
                 'gambar' => 'nullable|image|mimes:jpg,jpeg,png|max:10240',
             ]);
 
-            $about = Aboutus::first() ?? new Aboutus();
+            $about = AboutUs::first() ?? new AboutUs();
 
             if ($request->hasFile('gambar')) {
                 $filename = time() . '.' . $request->gambar->extension();
