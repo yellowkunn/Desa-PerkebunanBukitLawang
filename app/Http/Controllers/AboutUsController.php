@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\AboutUs;
+use App\Models\Aboutus;
 
 class AboutUsController extends Controller
 {
