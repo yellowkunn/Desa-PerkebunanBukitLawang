@@ -1,6 +1,6 @@
 @extends('components.main')
 @section('container')    
-    <div class="w-full h-[25vh] relative overflow-hidden">
+    <div class="w-full h-[35vh] relative overflow-hidden">
         <img src="{{ asset($about->background) }}" class="w-full h-full object-cover absolute top-0 left-0 z-0 brightness-75"
             alt="Background">
     </div>
