@@ -1,6 +1,6 @@
 @extends('components.main')
 @section('container')    
-    <div class="w-full lg:h-[25vh] h-[50vh]">
+    <div class="w-full lg:h-[50vh] h-[25vh]">
         <img src="{{ asset($about->background) }}" class="w-full h-full object-cover brightness-75"
             alt="Background">
     </div>
